@@ -29,3 +29,29 @@ window.addEventListener('scroll', () => {
         parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
     }
 });
+// Enhanced Navbar Scroll Effect
+window.addEventListener('scroll', () => {
+    const navbar = document.querySelector('.navbar');
+    const scrolled = window.pageYOffset;
+    
+    if (scrolled > 50) {
+        navbar.style.background = 'rgba(15, 15, 15, 0.85)';
+        navbar.style.backdropFilter = 'blur(25px)';
+        navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.15)';
+        navbar.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.2)';
+    } else {
+        navbar.style.background = 'rgba(15, 15, 15, 0.3)';
+        navbar.style.backdropFilter = 'blur(25px)';
+        navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
+        navbar.style.boxShadow = 'none';
+    }
+});
+
+// Mobile menu background
+document.querySelector('.hamburger').addEventListener('click', function() {
+    const navMenu = document.querySelector('.nav-menu');
+    if (navMenu.classList.contains('active')) {
+        navMenu.style.background = 'rgba(15, 15, 15, 0.95)';
+        navMenu.style.backdropFilter = 'blur(25px)';
+    }
+});
