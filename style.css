@@ -29,14 +29,16 @@ body::before {
 }
 
 /* Navigation */
+/* Navigation - Transparent Glass */
 .navbar {
-    background: rgba(15, 15, 15, 0.8);
-    backdrop-filter: blur(20px);
+    background: rgba(15, 15, 15, 0.3);
+    backdrop-filter: blur(25px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
+    transition: all 0.4s ease;
 }
 
 .nav-container {
@@ -46,7 +48,7 @@ body::before {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    height: 70px;
+    height: 80px;
 }
 
 .nav-logo {
@@ -56,31 +58,34 @@ body::before {
 }
 
 .logo {
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
+    width: 45px;
+    height: 45px;
+    border-radius: 12px;
     background: linear-gradient(135deg, #8B5CF6, #7C3AED);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 25px rgba(139, 92, 246, 0.3);
 }
 
 .brand-name {
-    font-size: 1.5rem;
+    font-size: 1.6rem;
     font-weight: 700;
     background: linear-gradient(135deg, #8B5CF6, #C4B5FD);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
 }
 
 .nav-menu {
     display: flex;
     list-style: none;
-    gap: 30px;
+    gap: 35px;
 }
 
 .nav-link {
@@ -89,11 +94,13 @@ body::before {
     font-weight: 500;
     transition: all 0.3s ease;
     position: relative;
-    padding: 8px 0;
+    padding: 10px 0;
+    font-size: 1rem;
 }
 
 .nav-link:hover {
     color: #8B5CF6;
+    text-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
 }
 
 .nav-link::after {
@@ -104,7 +111,9 @@ body::before {
     width: 0;
     height: 2px;
     background: linear-gradient(90deg, #8B5CF6, #C4B5FD);
+    border-radius: 2px;
     transition: width 0.3s ease;
+    box-shadow: 0 0 10px rgba(139, 92, 246, 0.5);
 }
 
 .nav-link:hover::after {
@@ -115,17 +124,20 @@ body::before {
     display: none;
     flex-direction: column;
     cursor: pointer;
+    padding: 5px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .bar {
     width: 25px;
-    height: 3px;
+    height: 2px;
     background: #E5E7EB;
     margin: 3px 0;
     transition: 0.3s;
     border-radius: 2px;
 }
-
 /* Hero Section */
 .hero {
     background: linear-gradient(135deg, rgba(15, 15, 15, 0.9), rgba(30, 15, 50, 0.8));
