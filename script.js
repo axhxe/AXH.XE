@@ -1,57 +1,38 @@
-// Add this to your existing script.js file
-
-// Enhanced card hover effects
-document.querySelectorAll('.card').forEach(card => {
-    card.addEventListener('mousemove', function(e) {
-        const rect = this.getBoundingClientRect();
-        const x = e.clientX - rect.left;
-        const y = e.clientY - rect.top;
+// Add interactive effects to the glass cards
+document.addEventListener('DOMContentLoaded', function() {
+    const glassCards = document.querySelectorAll('.glass-card');
+    
+    // Add mousemove effect for enhanced glassmorphism
+    glassCards.forEach(card => {
+        card.addEventListener('mousemove', function(e) {
+            const rect = this.getBoundingClientRect();
+            const x = e.clientX - rect.left;
+            const y = e.clientY - rect.top;
+            
+            // Calculate the center of the card
+            const centerX = rect.width / 2;
+            const centerY = rect.height / 2;
+            
+            // Calculate the angle for the gradient
+            const angle = Math.atan2(y - centerY, x - centerX) * 180 / Math.PI;
+            
+            // Apply the dynamic gradient
+            this.style.background = `linear-gradient(${angle}deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.05) 100%)`;
+        });
         
-        const centerX = rect.width / 2;
-        const centerY = rect.height / 2;
-        
-        const angleX = (y - centerY) / 10;
-        const angleY = (centerX - x) / 10;
-        
-        this.style.transform = `perspective(1000px) rotateX(${angleX}deg) rotateY(${angleY}deg) scale(1.02)`;
+        // Reset the gradient when mouse leaves
+        card.addEventListener('mouseleave', function() {
+            this.style.background = 'rgba(255, 255, 255, 0.15)';
+        });
     });
     
-    card.addEventListener('mouseleave', function() {
-        this.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+    // Add click animation
+    glassCards.forEach(card => {
+        card.addEventListener('click', function() {
+            this.style.transform = 'scale(0.95)';
+            setTimeout(() => {
+                this.style.transform = '';
+            }, 150);
+        });
     });
-});
-
-// Add parallax effect to background
-window.addEventListener('scroll', () => {
-    const scrolled = window.pageYOffset;
-    const parallax = document.querySelector('.hero');
-    if (parallax) {
-        parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
-    }
-});
-// Enhanced Navbar Scroll Effect
-window.addEventListener('scroll', () => {
-    const navbar = document.querySelector('.navbar');
-    const scrolled = window.pageYOffset;
-    
-    if (scrolled > 50) {
-        navbar.style.background = 'rgba(15, 15, 15, 0.85)';
-        navbar.style.backdropFilter = 'blur(25px)';
-        navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.15)';
-        navbar.style.boxShadow = '0 5px 30px rgba(0, 0, 0, 0.2)';
-    } else {
-        navbar.style.background = 'rgba(15, 15, 15, 0.3)';
-        navbar.style.backdropFilter = 'blur(25px)';
-        navbar.style.borderBottom = '1px solid rgba(255, 255, 255, 0.1)';
-        navbar.style.boxShadow = 'none';
-    }
-});
-
-// Mobile menu background
-document.querySelector('.hamburger').addEventListener('click', function() {
-    const navMenu = document.querySelector('.nav-menu');
-    if (navMenu.classList.contains('active')) {
-        navMenu.style.background = 'rgba(15, 15, 15, 0.95)';
-        navMenu.style.backdropFilter = 'blur(25px)';
-    }
 });
