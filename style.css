@@ -5,51 +5,44 @@
     font-family: 'Poppins', sans-serif;
 }
 
-/* FORCE NO EXTRA SPACE */
-html {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
-}
-
-body {
+html, body {
     background: #111;
     color: white;
     text-align: center;
     min-height: 100vh;
-    min-height: 100dvh; /* Modern browsers - dynamic viewport */
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    position: relative;
+    overflow-x: hidden;
+    width: 100%;
 }
 
-/* Main content takes all available space */
-.main-content {
-    flex: 1 0 auto;
+body {
     display: flex;
     flex-direction: column;
+}
+
+.main-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px 0 20px;
+    padding: 20px 15px;
 }
 
-/* LOADER STYLES */
+/* LOADER */
 .loader {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #111;
+    background: #111;
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    pointer-events: none;
     animation: fadeOut 0.8s ease 2s forwards;
 }
 
@@ -65,10 +58,13 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 20px;
+    width: 90%;
+    max-width: 400px;
 }
 
 .loader-logo {
-    width: 500px;
+    width: 100%;
+    max-width: 300px;
     height: auto;
     animation: fadeInOut 2.5s ease forwards;
 }
@@ -80,11 +76,11 @@ body {
     100% { opacity: 0; }
 }
 
-/* Loading Bar Styles */
 .loading-bar-container {
-    width: 300px;
+    width: 100%;
+    max-width: 280px;
     height: 3px;
-    background-color: rgba(255, 255, 255, 0.2);
+    background: rgba(255,255,255,0.2);
     border-radius: 10px;
     overflow: hidden;
 }
@@ -92,285 +88,133 @@ body {
 .loading-bar {
     height: 100%;
     width: 0%;
-    background-color: #ffffff;
-    border-radius: 10px;
+    background: white;
     animation: loadProgress 2s ease forwards;
 }
 
 @keyframes loadProgress {
     0% { width: 5%; }
-    20% { width: 30%; }
     100% { width: 100%; }
 }
 
-/* LOGO */
+/* LOGO - CRITICAL FIX */
 .logo {
-    width: 350px;
-    margin-bottom: 15px;
+    width: 100%;
+    max-width: 280px;  /* Controls size on all screens */
+    height: auto;
+    margin: 0 auto 15px;
+    display: block;
 }
 
 .tagline {
-    font-size: 15px;
+    font-size: clamp(12px, 4vw, 15px);
     opacity: 0.7;
-    margin-bottom: 40px;
+    margin-bottom: 30px;
+    padding: 0 10px;
 }
 
-/* RECTANGLE CARDS */
+/* CARDS */
 .cards {
     display: grid;
     grid-template-columns: 1fr;
-    gap: 25px;
-    max-width: 800px;
-    margin: 0 auto 30px auto;
+    gap: 15px;
     width: 100%;
+    max-width: 600px;
+    margin: 0 auto 25px;
 }
 
 .card {
     background: #1a1a1a;
-    padding: 35px;
-    border-radius: 15px;
+    padding: 25px 15px;
+    border-radius: 12px;
     border: 1px solid #2a2a2a;
     cursor: pointer;
-    transition: 0.3s ease;
-    text-align: center;
-}
-
-.card:hover {
-    background: #222;
-    transform: translateY(-5px);
+    transition: 0.3s;
+    width: 100%;
 }
 
 .card h2 {
-    margin-bottom: 10px;
+    font-size: clamp(18px, 5vw, 24px);
+    margin-bottom: 5px;
 }
 
 .card p {
+    font-size: clamp(13px, 3.5vw, 15px);
     opacity: 0.6;
 }
 
-/* SOCIAL ICONS - FIXED SPACING */
+/* SOCIALS */
 .socials {
     display: flex;
     justify-content: center;
-    align-items: center;
     gap: 20px;
-    margin: 0;
-    padding: 0;
+    margin: 0 0 10px;
 }
 
 .socials a {
     color: white;
-    font-size: 22px;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     border: 2px solid white;
     border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
     text-decoration: none;
-    transition: 0.3s;
-    margin: 0;
+    font-size: 20px;
 }
 
-.socials a:hover {
-    background: white;
-    color: rgb(0, 0, 0);
-}
-
-/* FOOTER - NO EXTRA SPACE */
+/* FOOTER */
 footer {
     width: 100%;
-    margin: 0;
-    padding: 20px 0 20px 0;
+    padding: 15px 0;
     background: #111;
-    flex-shrink: 0;
-    border: none;
-    outline: none;
 }
 
 footer p {
-    font-size: 13px;
+    font-size: 12px;
     opacity: 0.5;
-    margin: 10px 0 0 0;
-    padding: 0;
-    line-height: 1.4;
 }
 
-/* REMOVE ANY POSSIBLE EXTRA SPACE */
-footer::before,
-footer::after,
-.main-content::before,
-.main-content::after,
-body::before,
-body::after {
-    display: none !important;
-    content: none !important;
-}
-
-/* RESPONSIVE FIXES */
-@media (max-width: 768px) {
-    .loader-logo {
-        width: min(70%, 400px);
-    }
-    .loading-bar-container {
-        width: min(70%, 300px);
-    }
-    
-    .main-content {
-        padding: 30px 15px 0 15px;
-    }
-    
+/* SIMPLE MEDIA QUERIES - JUST TO ADJUST SIZES */
+@media (min-width: 768px) {
     .logo {
-        width: min(80%, 300px);
-    }
-    
-    .tagline {
-        margin-bottom: 30px;
-        font-size: 14px;
-    }
-    
-    .cards {
-        gap: 15px;
-        margin-bottom: 20px;
+        max-width: 350px;
     }
     
     .card {
-        padding: 25px;
+        padding: 35px;
     }
     
-    footer {
-        padding: 15px 0 15px 0;
-    }
-    
-    footer p {
-        margin-top: 8px;
-        font-size: 12px;
+    .socials a {
+        width: 50px;
+        height: 50px;
+        font-size: 22px;
     }
 }
 
 @media (max-width: 480px) {
-    .loader-logo {
-        width: min(80%, 350px);
-    }
-    .loading-bar-container {
-        width: min(80%, 250px);
-    }
-    
-    .main-content {
-        padding: 25px 12px 0 12px;
-    }
-    
     .logo {
-        width: min(70%, 250px);
-    }
-    
-    .tagline {
-        margin-bottom: 25px;
-        font-size: 13px;
+        max-width: 220px;
     }
     
     .card {
-        padding: 20px;
+        padding: 20px 12px;
     }
     
-    .card h2 {
-        font-size: 20px;
-    }
-    
-    footer {
-        padding: 12px 0 12px 0;
+    .socials a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
     }
 }
 
-@media (max-width: 320px) {
-    .loader-logo {
-        width: min(90%, 280px);
-    }
-    .loading-bar-container {
-        width: min(90%, 220px);
-    }
-    
-    .main-content {
-        padding: 20px 10px 0 10px;
-    }
-    
+@media (max-width: 360px) {
     .logo {
-        width: min(80%, 200px);
-    }
-    
-    .card {
-        padding: 15px;
+        max-width: 180px;
     }
     
     .card h2 {
         font-size: 18px;
-    }
-    
-    footer p {
-        font-size: 11px;
-    }
-}
-
-/* EXTRA SAFETY - REMOVE ANY WHITESPACE */
-* {
-    border: none;
-    outline: none;
-}
-
-/* FORCE BACKGROUND COLOR */
-html, body, .main-content, footer {
-    background-color: #111;
-}
-/* CENTER ENTIRE PAGE CONTENT VERTICALLY */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-.main-content {
-    flex: 1;                 /* take all space */
-    display: flex;
-    flex-direction: column;
-    justify-content: center;  /* center vertically */
-    align-items: center;      /* center horizontally */
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-footer {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 0;
-}
-
-footer p {
-    margin: 5px 0 0 0;
-    padding: 0;
-}
-/* MAKE LOGO BIGGER ON MOBILE */
-@media (max-width: 768px) {
-    .logo {
-        width: 470%;       /* increase from current 80% max to bigger size */
-        max-width: 350px; /* optional limit */
-    }
-}
-
-@media (max-width: 480px) {
-    .logo {
-        width: 480%;       /* even bigger for small phones */
-        max-width: 360px; 
-    }
-}
-
-@media (max-width: 320px) {
-    .logo {
-        width: 490%;       /* tiny screens */
-        max-width: 300px;
     }
 }
