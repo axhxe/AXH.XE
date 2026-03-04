@@ -17,14 +17,12 @@ function openPage(pageName) {
 document.addEventListener('DOMContentLoaded', function() {
     const cards = document.querySelectorAll('.card');
     
-    cards.forEach(card => {
-        card.addEventListener('click', function() {
-            const cardTitle = this.querySelector('h2').textContent;
-            openPage(cardTitle);
-        });
+cards.forEach(card => {
+    card.addEventListener('click', function() {
+        const page = this.dataset.page;
+        window.location.href = page;
     });
 });
-
 // Loader backup to ensure it disappears
 window.addEventListener('load', function() {
     setTimeout(function() {
