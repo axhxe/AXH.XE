@@ -1,80 +1,83 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AXH XE</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="assets/style.css">
+
+    <!-- Font Awesome CDN -->
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>AXH XE</h1>
-            <div class="subtitle">TAKE WHAT YOU NEED . MAKE WHAT THEY CAN'T!</div>
-        </header>
-        
-        <div class="content-grid">
 
-            <!-- Elements -->
-            <a href="elements.html" class="glass-card card-link">
-                <h2 class="card-title">Elements</h2>
-                <div class="card-content">Open page →</div>
-            </a>
-
-            <!-- Packs -->
-            <a href="packs.html" class="glass-card card-link">
-                <h2 class="card-title">Packs</h2>
-                <div class="card-content">Open page →</div>
-            </a>
-
-            <!-- APK for PC & Phone -->
-            <a href="apk.html" class="glass-card card-link">
-                <h2 class="card-title">Apk for PC & PHONE</h2>
-                <div class="card-content">Open page →</div>
-            </a>
-
-            <!-- Tutorial -->
-            <a href="tutorial.html" class="glass-card card-link">
-                <h2 class="card-title">Tutorial</h2>
-                <div class="card-content">Open page →</div>
-            </a>
-
-            <!-- Edited Videos -->
-            <a href="videos.html" class="glass-card card-link">
-                <h2 class="card-title">Edited Videos</h2>
-                <div class="card-content">Open page →</div>
-            </a>
-
-        </div>
-        
-        <footer>
-            <div class="socials">
-
-                <a href="https://facebook.com" class="social" target="_blank" aria-label="Facebook">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-
-                <a href="https://instagram.com" class="social" target="_blank" aria-label="Instagram">
-                    <i class="fab fa-instagram"></i>
-                </a>
-
-                <a href="https://twitter.com" class="social" target="_blank" aria-label="Twitter">
-                    <i class="fab fa-twitter"></i>
-                </a>
-
-                <a href="https://youtube.com" class="social" target="_blank" aria-label="YouTube">
-                    <i class="fab fa-youtube"></i>
-                </a>
-
+    <!-- Loader Overlay -->
+    <div class="loader">
+        <div class="loader-content">
+            <img src="logo.png" alt="AXH XE Logo" class="loader-logo">
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
             </div>
-
-            <p>© 2025 AXH XE. All rights reserved.</p>
-        </footer>
+        </div>
     </div>
 
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" 
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <!-- Main Content -->
+    <main class="main-content">
+        <header>
+            <img src="logo.png" alt="AXH XE Logo" class="logo">
+            <p class="tagline">Take What You Need. Create What They Can’t.</p>
+        </header>
+
+        <section class="cards">
+            <div class="card" onclick="location.href='apk.html';">
+                <h2>APK</h2>
+                <p>Open page →</p>
+            </div>
+
+            <div class="card" onclick="location.href='elements.html';">
+                <h2>Elements</h2>
+                <p>Open page →</p>
+            </div>
+
+            <div class="card" onclick="location.href='edited-videos.html';">
+                <h2>Edited Videos</h2>
+                <p>Open page →</p>
+            </div>
+
+            <div class="card" onclick="location.href='pack.html';">
+                <h2>Pack</h2>
+                <p>Open page →</p>
+            </div>
+
+            <div class="card" onclick="location.href='tutorial.html';">
+                <h2>Tutorial</h2>
+                <p>Open page →</p>
+            </div>
+        </section>
+
+        <footer>
+            <div class="socials">
+                <a href="https://www.youtube.com/@axh.xe-yt" target="_blank">
+                    <i class="fa-brands fa-youtube"></i>
+                </a>
+                <a href="https://www.instagram.com/axh_xe" target="_blank">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+            </div>
+            <p>© 2026 AXH XE. All rights reserved</p>
+        </footer>
+    </main>
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                const loader = document.querySelector('.loader');
+                if (loader) {
+                    loader.style.display = 'none';
+                }
+            }, 2500);
+        });
+    </script>
+
 </body>
 </html>
