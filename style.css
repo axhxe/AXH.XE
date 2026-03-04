@@ -322,3 +322,55 @@ body::after {
 html, body, .main-content, footer {
     background-color: #111;
 }
+/* CENTER ENTIRE PAGE CONTENT VERTICALLY */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main-content {
+    flex: 1;                 /* take all space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /* center vertically */
+    align-items: center;      /* center horizontally */
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 0;
+}
+
+footer p {
+    margin: 5px 0 0 0;
+    padding: 0;
+}
+/* MAKE LOGO BIGGER ON MOBILE */
+@media (max-width: 768px) {
+    .logo {
+        width: 470%;       /* increase from current 80% max to bigger size */
+        max-width: 350px; /* optional limit */
+    }
+}
+
+@media (max-width: 480px) {
+    .logo {
+        width: 480%;       /* even bigger for small phones */
+        max-width: 360px; 
+    }
+}
+
+@media (max-width: 320px) {
+    .logo {
+        width: 490%;       /* tiny screens */
+        max-width: 300px;
+    }
+}
